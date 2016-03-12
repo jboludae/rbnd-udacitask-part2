@@ -40,4 +40,9 @@ class UdaciList
     end
     puts table
   end
+  #We add the possibility to change priority of items
+  def change_priority_item(index, new_priority)
+    @items[index-1].change_priority(new_priority)
+  end
 end
+
