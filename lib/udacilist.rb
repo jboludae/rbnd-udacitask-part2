@@ -14,7 +14,7 @@ class UdaciList
   end
   def delete(*index)
     # We add the possibility to remove several items at once
-    index.reverse.each do |index|
+    index.sort.reverse.each do |index|
       raise UdaciListErrors::IndexExceedsListSize, "Index exceeds list size" if index > @items.count
       @items.delete_at(index - 1)
     end

@@ -1,13 +1,28 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+I used terminal-table gem to format the table nicely.
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) I added the ability to delete several items at once. You can just
+  enter several indexes in the .delete method and those items will be
+  deleted.
+  b) I added the ability to change the priority of the to-do items. I added
+  the Udacilist.change_priority_item(index, new_priority_level) method.
+  That method calls a ToDoItem.change_priority(new_priority) method that
+  set the new priority (only if it is a valid priority level).
 
 # REFLECTIONS
 # -------------------------------------------------------
-1. How long did you spend working on this project?
+1. How long did you spend working on this project? About 7-8 hours
 2. What was the most rewarding challenge you conquered?
+	Well, implementing the priority level was challenging. I spent
+	some time trying to make it work. At the end I realized I mispelled
+	"priotity".
 3. What two additional features did you build? Why?
+	a) I added the ability to delete several items at once
+	b) I added the ability to change the priority of the to-do items
+	I added these two items because I thing they are useful.
 4. Where do you still have room to grow?
+	Error handling. I do not find the error logs so helpful. In my
+	opinion, they are not very precise and often point to the wrong
+	place. Any tip to improve on this will be appreciated.
