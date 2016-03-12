@@ -12,9 +12,12 @@ class UdaciList
     @items.push EventItem.new(description, options) if type == "event"
     @items.push LinkItem.new(description, options) if type == "link"
   end
-  def delete(index)
-    raise UdaciListErrors::IndexExceedsListSize, "Index exceeds list size" if index > @items.count
-    @items.delete_at(index - 1)
+  def delete(*index)
+    # We add the possibility to remove several items at once
+    index.reverse.each do |index|
+      raise UdaciListErrors::IndexExceedsListSize, "Index exceeds list size" if index > @items.count
+      @items.delete_at(index - 1)
+    end
   end
   def all
     table = Terminal::Table.new :title => @title
