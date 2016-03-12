@@ -11,9 +11,8 @@ class EventItem
     @end_date = Chronic.parse(options[:end_date]) if options[:end_date]
   end
   def details
-    format_description(@description) +
-    format_item_type(self.item_type)+
-    "event dates: " +
-    format_date(@start_date, @end_date)
+    [format_description(@description),
+    format_item_type(self.item_type),
+    "event dates: "+format_date(@start_date, @end_date)]
   end
 end

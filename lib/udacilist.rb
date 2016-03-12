@@ -17,24 +17,24 @@ class UdaciList
     @items.delete_at(index - 1)
   end
   def all
-    puts "-" * @title.length
-    puts @title
-    puts "-" * @title.length
+    table = Terminal::Table.new :title => @title
     @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+      row = [ "#{position + 1}" ]+item.details
+      table << row
     end
+    puts table
   end
   def filter(item_type)
-    puts "-" * @title.length
-    puts @title.ljust(15) +"- "+ item_type + "'s"
-    puts "-" * @title.length
+    table = Terminal::Table.new :title => @title +" - "+ item_type + "'s"
     filtered_list = @items.select{|item| item.item_type == item_type}
     if filtered_list.count > 0
       filtered_list.each_with_index do |item, position|
-        puts "#{position + 1} #{item.details}"
+        row = ["#{position + 1}"]+ item.details
+        table << row
       end
     else
-      puts "There are no items in the list"
+      table << ["There are no items in the list"]
     end
+    puts table
   end
 end
