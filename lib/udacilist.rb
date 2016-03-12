@@ -24,4 +24,17 @@ class UdaciList
       puts "#{position + 1}) #{item.details}"
     end
   end
+  def filter(item_type)
+    puts "-" * @title.length
+    puts @title.ljust(15) +"- "+ item_type + "'s"
+    puts "-" * @title.length
+    filtered_list = @items.select{|item| item.item_type == item_type}
+    if filtered_list.count > 0
+      filtered_list.each_with_index do |item, position|
+        puts "#{position + 1} #{item.details}"
+      end
+    else
+      puts "There are no items in the list"
+    end
+  end
 end
